@@ -32,7 +32,7 @@ public class AdvancedCalculator extends Calculator {
         return area;
     }
 
-    static void printGlobalOperations(){
+    public static void printGlobalOperations(){
         for (String globalOperation : globalOperations) {
             System.out.println(globalOperation);
         }

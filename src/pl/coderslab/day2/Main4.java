@@ -5,6 +5,12 @@ public class Main4 {
     public static void main(String[] args) {
 
         Book book = new Book();
+        try {
+            Book book3 = (Book) book.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
         book.increaseNumber();
         Book book2 = new Book();
         book2.increaseNumber();
@@ -39,6 +45,7 @@ public class Main4 {
         String a1 = Integer.toString(number);
         String a2 = "" + number;
 
+        Book book1 = new Book();
 
     }
 }

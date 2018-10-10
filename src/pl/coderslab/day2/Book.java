@@ -1,6 +1,6 @@
 package pl.coderslab.day2;
 
-public class Book {
+public class Book implements Cloneable {
 
     public String name;
     public double price;
@@ -32,5 +32,10 @@ public class Book {
         for (String s : names) {
             System.out.println(s);
         }
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

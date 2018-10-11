@@ -9,10 +9,7 @@ public class Main1 {
     private static final String QUERY_DELETE = "DELETE from movies WHERE id = ?";
 
     public static void main(String[] args) {
-
-        try (Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3366/cinemas_ex?useSSL=false&characterEncoding=utf8",
-                "root", "root");
+        try (Connection conn = DbUtil.getConnection("cinemas_ex");
              PreparedStatement stat = conn.prepareStatement(QUERY_SELECT);
              ResultSet rs = stat.executeQuery()) {
 

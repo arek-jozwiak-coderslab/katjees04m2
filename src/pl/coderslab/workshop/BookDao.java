@@ -1,5 +1,7 @@
 package pl.coderslab.workshop;
 
+import pl.coderslab.day1homework.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +24,6 @@ public class BookDao {
         Book book = new Book();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(READ_BOOK_QUERY);
-
         ) {
             statement.setInt(1, bookId);
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -42,7 +43,7 @@ public class BookDao {
     }
 
     // LISTA WSZYSTKICH KSIAZEK
-    public List<Book> findAll() {
+    public Book[] findAll() {
         List<Book> bookList = new ArrayList<>();
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_ALL_BOOKS_QUERY);
@@ -61,7 +62,8 @@ public class BookDao {
             e.printStackTrace();
             System.out.println("Cos sie nie powiodło");
         }
-        return bookList;
+        Book[] uArray = new Book[bookList.size()]; uArray = bookList.toArray(uArray);
+        return uArray;
 
     }
 
